@@ -2,22 +2,22 @@
 // objects, write code that appends a table to your web page and then 
 // adds new rows of data for each UFO sighting.
 
-// Set reference to UFO Table
+// Set reference to index id
 var ufoTable = d3.select("#ufo-table");
 
 // Set reference to table body
 var tBody = d3.select("tbody");
 
 // log data
-console.log(data);
+// console.log(data);
 
 // append one table row for each object
 // Make sure you have a column for 
 // date/time, city, state, country, shape, and comment 
 // module 14.3 exercise 3
-data.forEach((ufoTable) => {
+data.forEach(sighting => {
     var row = tBody.append("tr");
-    Object.entries(ufoTable).forEach(([key, value]) => {
+    Object.entries(sighting).forEach(([key, value]) => {
       var cell = row.append("td");
       cell.text(value);
     });
@@ -55,9 +55,9 @@ filterButton.on("click", () => {
   tBody = ufoTable.append("tbody");
 
   data.filter(inputValue)
-    .forEach(date => {
+    .forEach(sighting => {
         var row = tBody.append("tr");
-        Object.entries(ufoTable).forEach(([key, value]) => {
+        Object.entries(sighting).forEach(([key, value]) => {
           var cell = row.append("td");
           cell.text(value);
         });
